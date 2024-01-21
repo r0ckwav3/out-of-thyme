@@ -1,0 +1,7 @@
+# Mac folder stuff
+.DS_Store
+
+# local image editing files
+*.pxm
+*.pxd
+/pixelmator

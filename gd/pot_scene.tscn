@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://63nui4oaaiyw"]
+
+[ext_resource type="Texture2D" uid="uid://gy4pdicj0op1" path="res://Assets/blurry_wall.jpg" id="1_m76bv"]
+[ext_resource type="Texture2D" uid="uid://bx7kytxfa2hnt" path="res://Assets/pot.png" id="2_lxul6"]
+[ext_resource type="Texture2D" uid="uid://entio6tu8hk6" path="res://Assets/pot_opening.png" id="3_uhf1l"]
+
+[node name="PotScene" type="Node2D"]
+
+[node name="BlurryWall" type="Sprite2D" parent="."]
+position = Vector2(960, 480)
+scale = Vector2(0.666667, 0.666667)
+texture = ExtResource("1_m76bv")
+
+[node name="BlurryWall2" type="Sprite2D" parent="."]
+position = Vector2(960, -720)
+scale = Vector2(0.666667, 0.666667)
+texture = ExtResource("1_m76bv")
+
+[node name="Pot" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_lxul6")
+
+[node name="PotOpening" type="Sprite2D" parent="."]
+clip_children = 2
+position = Vector2(960, 540)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("3_uhf1l")
