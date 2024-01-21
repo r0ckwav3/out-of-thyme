@@ -78,3 +78,9 @@ func _input(event):
 		if nextsubscene >= len(subscenes):
 			nextsubscene = 0
 		change_target(nextsubscene)
+	if event.is_pressed():
+		if event.as_text().is_valid_int():
+			var i = event.as_text().to_int() - 1
+			if i < len(subscenes):
+				change_target(i)
+				
