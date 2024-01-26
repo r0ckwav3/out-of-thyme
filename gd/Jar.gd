@@ -26,10 +26,10 @@ func _process(delta):
 	pass
 
 func _on_area_2d_input_event(viewport, event, shape_idx):
-	if(event.is_pressed()):
-		print("clicked on jar containing ", item_name, ", id: ", item_id)
-		item_selected.emit(item_id)
-
+	if event is InputEventMouseButton:
+		if event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+			#print("clicked on jar containing ", item_name, ", id: ", item_id)
+			item_selected.emit(item_id)
 
 func _on_area_2d_mouse_entered():
 	anim_obj.play("Hover_Enlarge")
