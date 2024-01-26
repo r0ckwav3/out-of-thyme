@@ -6,7 +6,7 @@ signal item_selected(item_id)
 @export var num_jars = 4
 @export_group("Positioning")
 @export var dx = 350
-@export var dy = 100
+@export var dy = -100
 
 var jars = []
 
