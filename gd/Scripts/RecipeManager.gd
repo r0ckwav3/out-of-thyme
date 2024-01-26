@@ -18,6 +18,7 @@ func parse_spices():
 	for i in range(num_spices):
 		assert(typeof(parse1[i]) == TYPE_DICTIONARY)
 		var parse2 = parse1[i]
+		parse2["id"] = int(parse2["id"])
 		chosen_spices.append(parse2)
 	
 	spices_intialized.emit(chosen_spices)

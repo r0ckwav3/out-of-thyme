@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://v7o8nvto7jyn"]
+[gd_scene load_steps=8 format=3 uid="uid://v7o8nvto7jyn"]
 
 [ext_resource type="PackedScene" uid="uid://bp3ktpd4rye8f" path="res://Scenes/subscene_manager.tscn" id="1_bnhar"]
 [ext_resource type="PackedScene" uid="uid://63nui4oaaiyw" path="res://Scenes/pot_scene.tscn" id="2_luqqc"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dju6rnicahicb" path="res://Scenes/jar_controller.tscn" id="4_77yxr"]
 [ext_resource type="Script" path="res://Scripts/RecipeManager.gd" id="5_c6pvm"]
 [ext_resource type="Script" path="res://Scripts/MouseManager.gd" id="6_2huoc"]
+[ext_resource type="Texture2D" uid="uid://c8xribwwb7tnw" path="res://Assets/Objects/Jars/Jar_Unimplemented.png" id="7_takwi"]
 
 [node name="Game" type="Node2D"]
 
@@ -21,7 +22,7 @@ scale = Vector2(0.666667, 0.666667)
 texture = ExtResource("3_njvuc")
 
 [node name="BlurryWall2" type="Sprite2D" parent="SubsceneManager2/TempDrawerScene"]
-position = Vector2(960, -720)
+position = Vector2(960, 1680)
 scale = Vector2(0.666667, 0.666667)
 texture = ExtResource("3_njvuc")
 
@@ -34,6 +35,12 @@ script = ExtResource("5_c6pvm")
 [node name="MouseManager" type="Node2D" parent="."]
 script = ExtResource("6_2huoc")
 
+[node name="JarSprite" type="Sprite2D" parent="MouseManager"]
+position = Vector2(64, 35)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("7_takwi")
+
 [connection signal="pot_selected" from="SubsceneManager2/PotScene" to="MouseManager" method="_on_pot_selected"]
 [connection signal="item_selected" from="SubsceneManager2/TempDrawerScene/JarController" to="MouseManager" method="_on_spice_selected"]
 [connection signal="spices_intialized" from="RecipeManager" to="SubsceneManager2/TempDrawerScene/JarController" method="_on_spice_init"]
+[connection signal="spices_intialized" from="RecipeManager" to="MouseManager" method="_on_spice_init"]

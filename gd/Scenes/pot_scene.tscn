@@ -22,7 +22,7 @@ scale = Vector2(0.666667, 0.666667)
 texture = ExtResource("1_m76bv")
 
 [node name="BlurryWall2" type="Sprite2D" parent="."]
-position = Vector2(960, -720)
+position = Vector2(960, 1680)
 scale = Vector2(0.666667, 0.666667)
 texture = ExtResource("1_m76bv")
 
