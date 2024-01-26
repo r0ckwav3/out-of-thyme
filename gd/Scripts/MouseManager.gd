@@ -13,7 +13,8 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	position = get_viewport().get_mouse_position()
+	pass
+	# position = get_viewport().get_mouse_position()
 
 func _on_spice_init(spices):
 	for s in spices:
@@ -38,3 +39,7 @@ func set_current_spice(id: int):
 		jar_sprite_obj.visible = true
 		jar_sprite_obj.texture = texture_dict[id]
 	current_spice = id
+
+func _input(event):
+	if event is InputEventMouseMotion:
+		position = event.position
