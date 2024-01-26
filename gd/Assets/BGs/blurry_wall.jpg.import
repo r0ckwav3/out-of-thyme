@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://gy4pdicj0op1"
-path="res://.godot/imported/blurry_wall.jpg-ccbf620f9d6b76a258b2fb48fb45577a.ctex"
+path="res://.godot/imported/blurry_wall.jpg-efe92d4936de4d402d1e9240d24b5ac0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/blurry_wall.jpg"
-dest_files=["res://.godot/imported/blurry_wall.jpg-ccbf620f9d6b76a258b2fb48fb45577a.ctex"]
+source_file="res://Assets/BGs/blurry_wall.jpg"
+dest_files=["res://.godot/imported/blurry_wall.jpg-efe92d4936de4d402d1e9240d24b5ac0.ctex"]
 
 [params]
 
