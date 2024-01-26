@@ -1,10 +1,20 @@
-[gd_scene load_steps=4 format=3 uid="uid://63nui4oaaiyw"]
+[gd_scene load_steps=7 format=3 uid="uid://63nui4oaaiyw"]
 
+[ext_resource type="Script" path="res://Scripts/PotScene.gd" id="1_2i87j"]
 [ext_resource type="Texture2D" uid="uid://gy4pdicj0op1" path="res://Assets/BGs/blurry_wall.jpg" id="1_m76bv"]
 [ext_resource type="Texture2D" uid="uid://bx7kytxfa2hnt" path="res://Assets/Objects/pot.png" id="2_a6vh2"]
 [ext_resource type="Texture2D" uid="uid://entio6tu8hk6" path="res://Assets/Objects/pot_opening.png" id="3_rtxj7"]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ljnfc"]
+radius = 245.0
+height = 884.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_t6ns6"]
+radius = 163.0
+height = 652.0
+
 [node name="PotScene" type="Node2D"]
+script = ExtResource("1_2i87j")
 
 [node name="BlurryWall" type="Sprite2D" parent="."]
 position = Vector2(960, 480)
@@ -26,3 +36,17 @@ clip_children = 2
 position = Vector2(960, 540)
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("3_rtxj7")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(960, 896)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_ljnfc")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(960, 546)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_t6ns6")
+
+[connection signal="input_event" from="Area2D" to="." method="_on_pot_input_event"]

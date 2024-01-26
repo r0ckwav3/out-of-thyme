@@ -34,5 +34,6 @@ script = ExtResource("5_c6pvm")
 [node name="MouseManager" type="Node2D" parent="."]
 script = ExtResource("6_2huoc")
 
+[connection signal="pot_selected" from="SubsceneManager2/PotScene" to="MouseManager" method="_on_pot_selected"]
 [connection signal="item_selected" from="SubsceneManager2/TempDrawerScene/JarController" to="MouseManager" method="_on_spice_selected"]
 [connection signal="spices_intialized" from="RecipeManager" to="SubsceneManager2/TempDrawerScene/JarController" method="_on_spice_init"]
