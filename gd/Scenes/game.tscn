@@ -1,28 +1,27 @@
 [gd_scene load_steps=5 format=3 uid="uid://v7o8nvto7jyn"]
 
-[ext_resource type="PackedScene" uid="uid://bp3ktpd4rye8f" path="res://subscene_manager.tscn" id="1_bnhar"]
-[ext_resource type="PackedScene" uid="uid://63nui4oaaiyw" path="res://pot_scene.tscn" id="2_luqqc"]
+[ext_resource type="PackedScene" uid="uid://bp3ktpd4rye8f" path="res://Scenes/subscene_manager.tscn" id="1_bnhar"]
+[ext_resource type="PackedScene" uid="uid://63nui4oaaiyw" path="res://Scenes/pot_scene.tscn" id="2_luqqc"]
 [ext_resource type="Texture2D" uid="uid://gy4pdicj0op1" path="res://Assets/BGs/blurry_wall.jpg" id="3_njvuc"]
-[ext_resource type="PackedScene" uid="uid://dju6rnicahicb" path="res://jar_controller.tscn" id="4_77yxr"]
+[ext_resource type="PackedScene" uid="uid://dju6rnicahicb" path="res://Scenes/jar_controller.tscn" id="4_77yxr"]
 
 [node name="Game" type="Node2D"]
 
-[node name="SubsceneManager" parent="." instance=ExtResource("1_bnhar")]
+[node name="SubsceneManager2" parent="." instance=ExtResource("1_bnhar")]
 
-[node name="PotScene" parent="SubsceneManager" instance=ExtResource("2_luqqc")]
-visible = false
+[node name="PotScene" parent="SubsceneManager2" instance=ExtResource("2_luqqc")]
 
-[node name="TempDrawerScene" type="Node2D" parent="SubsceneManager"]
+[node name="TempDrawerScene" type="Node2D" parent="SubsceneManager2"]
 
-[node name="BlurryWall" type="Sprite2D" parent="SubsceneManager/TempDrawerScene"]
+[node name="BlurryWall" type="Sprite2D" parent="SubsceneManager2/TempDrawerScene"]
 position = Vector2(960, 480)
 scale = Vector2(0.666667, 0.666667)
 texture = ExtResource("3_njvuc")
 
-[node name="BlurryWall2" type="Sprite2D" parent="SubsceneManager/TempDrawerScene"]
+[node name="BlurryWall2" type="Sprite2D" parent="SubsceneManager2/TempDrawerScene"]
 position = Vector2(960, -720)
 scale = Vector2(0.666667, 0.666667)
 texture = ExtResource("3_njvuc")
 
-[node name="JarController" parent="SubsceneManager/TempDrawerScene" instance=ExtResource("4_77yxr")]
-position = Vector2(408, 647)
+[node name="JarController" parent="SubsceneManager2/TempDrawerScene" instance=ExtResource("4_77yxr")]
+position = Vector2(464, 700)

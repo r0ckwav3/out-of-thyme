@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://dh7pwvvyhj5bj"]
 
-[ext_resource type="Script" path="res://Jar.gd" id="1_rvdfm"]
-[ext_resource type="Texture2D" uid="uid://7hbq3wjrb4au" path="res://Assets/Objects/Jars/Jar_Liquid_brown.png" id="2_la1bg"]
+[ext_resource type="Script" path="res://Scripts/Jar.gd" id="1_t843w"]
+[ext_resource type="Texture2D" uid="uid://c8xribwwb7tnw" path="res://Assets/Objects/Jars/Jar_Unimplemented.png" id="2_6nic4"]
 [ext_resource type="FontFile" uid="uid://dfurkodlg37bg" path="res://Assets/Fonts/Bradley Hand Bold.ttf" id="3_wmkp4"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ycjok"]
@@ -69,13 +69,14 @@ _data = {
 
 [node name="Jar" type="Node2D"]
 position = Vector2(812, 555)
-script = ExtResource("1_rvdfm")
+script = ExtResource("1_t843w")
+sprite_name = "Jar_Unimplemented.png"
 
 [node name="SpriteContainer" type="Node2D" parent="."]
 
 [node name="JarSprite" type="Sprite2D" parent="SpriteContainer"]
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_la1bg")
+texture = ExtResource("2_6nic4")
 
 [node name="Label" type="Label" parent="SpriteContainer"]
 offset_left = -104.0

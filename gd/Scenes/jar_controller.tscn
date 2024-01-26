@@ -1,9 +1,9 @@
 [gd_scene load_steps=3 format=3 uid="uid://dju6rnicahicb"]
 
-[ext_resource type="Script" path="res://JarController.gd" id="1_ki4l8"]
-[ext_resource type="PackedScene" uid="uid://dh7pwvvyhj5bj" path="res://jar.tscn" id="2_xufxs"]
+[ext_resource type="Script" path="res://Scripts/JarController.gd" id="1_py082"]
+[ext_resource type="PackedScene" uid="uid://dh7pwvvyhj5bj" path="res://Scenes/jar.tscn" id="2_xufxs"]
 
 [node name="JarController" type="Node2D"]
 position = Vector2(332, 664)
-script = ExtResource("1_ki4l8")
+script = ExtResource("1_py082")
 Jar = ExtResource("2_xufxs")

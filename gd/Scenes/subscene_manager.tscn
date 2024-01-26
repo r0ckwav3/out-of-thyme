@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bp3ktpd4rye8f"]
 
-[ext_resource type="Script" path="res://SubsceneManager.gd" id="1_qtb84"]
+[ext_resource type="Script" path="res://Scripts/SubsceneManager.gd" id="1_h6srp"]
 
 [node name="SubsceneManager" type="Node2D"]
-script = ExtResource("1_qtb84")
+script = ExtResource("1_h6srp")
