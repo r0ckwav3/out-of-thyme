@@ -1,0 +1,22 @@
+[
+  {
+    "id": 0,
+    "name": "Thyme",
+    "texture": "Jar_Unimplemented.png"
+  },
+  {
+    "id": 1,
+    "name": "Peppercorn",
+    "texture": "Jar_Peppercorn.png"
+  },
+  {
+    "id": 2,
+    "name": "Brown Sugar",
+    "texture": "Jar_Liquid_Brown.png"
+  },
+  {
+    "id": 3,
+    "name": "Tumeric",
+    "texture": "Jar_Liquid_Brown.png"
+  },
+]

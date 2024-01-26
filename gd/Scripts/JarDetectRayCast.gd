@@ -1,3 +1,4 @@
+## UNUSED CODE ##
 extends RayCast2D
 
 var last_obj = null;
