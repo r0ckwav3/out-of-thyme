@@ -17,6 +17,41 @@
   {
     "id": 3,
     "name": "Tumeric",
-    "texture": "Jar_Liquid_Brown.png"
+    "texture": "Jar_Liquid_Yellow.png"
+  },
+  {
+    "id": 4,
+    "name": "Chili Powder",
+    "texture": "Jar_Liquid_Red.png"
+  },
+  {
+    "id": 5,
+    "name": "Caviar",
+    "texture": "Jar_Caviar.png"
+  },
+  {
+    "id": 6,
+    "name": "Salt",
+    "texture": "Jar_Liquid_White.png"
+  },
+  {
+    "id": 7,
+    "name": "White Sugar",
+    "texture": "Jar_Liquid_White.png"
+  },
+  {
+    "id": 8,
+    "name": "Flour",
+    "texture": "Jar_Liquid_White.png"
+  },
+  {
+    "id": 9,
+    "name": "Baking Powder",
+    "texture": "Jar_Liquid_White.png"
+  },
+  {
+    "id": 10,
+    "name": "Baking Soda",
+    "texture": "Jar_Liquid_White.png"
   },
 ]

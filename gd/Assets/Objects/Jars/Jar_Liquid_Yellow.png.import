@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://7hbq3wjrb4au"
-path="res://.godot/imported/Jar_Liquid_Brown.png-b0662cf3590b734a1d0cc60b799778c6.ctex"
+uid="uid://nqrqc3t1pb4o"
+path="res://.godot/imported/Jar_Liquid_Yellow.png-0811d53317d22791bd3c5f6b1c6ea826.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Objects/Jars/Jar_Liquid_Brown.png"
-dest_files=["res://.godot/imported/Jar_Liquid_Brown.png-b0662cf3590b734a1d0cc60b799778c6.ctex"]
+source_file="res://Assets/Objects/Jars/Jar_Liquid_Yellow.png"
+dest_files=["res://.godot/imported/Jar_Liquid_Yellow.png-0811d53317d22791bd3c5f6b1c6ea826.ctex"]
 
 [params]
 
