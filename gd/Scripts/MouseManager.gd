@@ -1,6 +1,6 @@
 extends Node2D
 
-signal spice_added
+signal spice_added(id)
 
 var current_spice: int
 var texture_dict = {}
@@ -22,11 +22,10 @@ func _on_spice_init(spices):
 		var sprite_texture = load("res://Assets/Objects/Jars/"+sprite_name)
 		if sprite_texture is Texture2D:
 			texture_dict[s["id"]] = sprite_texture
-	print(texture_dict)
 
 func _on_pot_selected():
+	spice_added.emit(current_spice)
 	set_current_spice(-1)
-	# TODO: message recipe manager
 
 func _on_spice_selected(id: int):
 	set_current_spice(id)
