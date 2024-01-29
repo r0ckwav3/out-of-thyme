@@ -1,0 +1,18 @@
+{
+  "start": "[TITLE]",
+  "cfg": {
+	"TITLE": ["[POTION NAME]", "[RECIPE NAME]"],
+	"POTION NAME": ["[NAME]'s [POTION EFFECT] [POTION TYPE]", "[NAME]'s [POTION TYPE] of [POTION EFFECT]", "[POTION TYPE] of [POTION EFFECT]"],
+	"RECIPE NAME": ["[RECIPE SOURCE] [PREP] [MEAT]", "[RECIPE SOURCE] [MEAT] [DISH TYPE]", "[MEAT] and [MEAT] [DISH TYPE]", "[REGION] [DISH TYPE]"],
+	"RECIPE SOURCE": ["[REGION]", "[NAME]'s"],
+	"REGION": ["[FANTASY REGION]", "[REAL REGION]"],
+	"POTION TYPE": ["Brew", "Elixir", "Potion", "Tincture", "Concoction", "Flask", "Vial"],
+	"POTION EFFECT": ["Blinding", "Dragonfire", "Levitation", "Healing", "Haste", "Might", "Invulnerability", "Love", "Confusion", "Invisibility", "Intellect", "Gravitation", "Luminescence", "Howling", "Growth", "Swiftness", "Agility"],
+	"PREP": ["Baked", "Fried", "Boiled", "Seared", "Aged", "Dried", "Broiled", "Shredded", "Pulled"],
+	"MEAT": ["Chicken", "Beef", "Steak", "Pork", "Porkbelly", "Veal", "Venison", "Lamb", "Salmon", "Cod", "Swordfish", "Bulgogi", "Frog", "Newt", "Mandrake", "Pheonix"],
+	"DISH TYPE": ["Stew", "Soup", "Pizza", "Skewers", "on Rice", "Udon", "Ramen", "Sandwitch", "Ala Mode", "Ala King", "Ragou", "Risotto"],
+	"NAME": ["Rynee", "Peter", "Jesse", "Derek", "Tasha", "Elminster", "Liliana", "Jace", "Vraska", "Chandra", "Gideon", "Nissa", "Jaya", "Elesh Norn", "Lissandra", "Namilia", "Illaoi", "Orianna", "Diana", "The Black Queen"],
+	"FANTASY REGION": ["Celestial", "Infernal", "Ravnican", "Kaladeshi", "Jamuraan", "Phyrexian", "Jeskai", "Abzan", "Mardu", "Temur", "Sultai", "Llanowar", "Mercadian", "Demacian", "Ixtali", "Freljordian", "Shuriman", "Piltovan", "Zaunite", "Ionian"],
+	"REAL REGION": ["Mexican", "Italian", "African", "French", "Swedish", "Indian", "Chinese", "Japanese", "Brazilian", "Chilean", "Russian", "Mediterranean", "Southern", "West Coast", "East Coast", "Boston", "New York", "Philly"]
+  }
+}
