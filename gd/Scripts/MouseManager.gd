@@ -31,7 +31,6 @@ func _on_spice_selected(id: int):
 	set_current_spice(id)
 
 func set_current_spice(id: int):
-	print("current spice is now ", id)
 	if id == -1:
 		jar_sprite_obj.visible = false
 	else:
