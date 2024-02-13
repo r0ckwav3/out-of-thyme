@@ -18,5 +18,5 @@ Currently, the only way to run this game is to install Godot v4.2.1 and launch i
  - [ ] A menu or something
 
 ## Credits
-The stone wall background is from [texturify.com](https://texturify.com/stock-photo/stone-wall022-9863.html).
+The stone wall background and granite texture is from [texturify.com](https://texturify.com) ([stone wall](https://texturify.com/stock-photo/stone-wall022-9863.html), [granite](https://texturify.com/stock-photo/marbel013-9142.html)).
 All other code and assets were made by me.
