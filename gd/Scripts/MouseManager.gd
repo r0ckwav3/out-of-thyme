@@ -24,8 +24,9 @@ func _on_spice_init(spices):
 			texture_dict[s["id"]] = sprite_texture
 
 func _on_pot_selected():
-	spice_added.emit(current_spice)
-	set_current_spice(-1)
+	if current_spice != -1:
+		spice_added.emit(current_spice)
+		set_current_spice(-1)
 
 func _on_spice_selected(id: int):
 	set_current_spice(id)

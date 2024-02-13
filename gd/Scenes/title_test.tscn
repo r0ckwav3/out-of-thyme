@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dgcqxga8d4q44"]
 
-[ext_resource type="Script" path="res://Scenes/TitleTestButton.gd" id="2_fy5fk"]
+[ext_resource type="Script" path="res://Scripts/TitleTestButton.gd" id="2_fy5fk"]
 
 [node name="TitleTest" type="Control"]
 layout_mode = 3
