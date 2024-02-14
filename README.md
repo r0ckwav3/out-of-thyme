@@ -7,19 +7,19 @@ Currently, the only way to run this game is to install Godot v4.2.1 and launch i
 ## Roadmap
  - [X] Ingredient pick-up and put-down
  - [X] Recipe generation
- - [X] Recipe display
+ - [X] Display recipe
  - [ ] Display recipe progress
  - [ ] Timer
  - [X] Recipe validation
- - [X] Ingredient Randomization
+ - [X] Ingredient randomization
  - [ ] Drawers
  - [ ] Difficulty options or increasing difficulty or something
- - [ ] Recipe mishaps and Troubleshooting
+ - [ ] Recipe mishaps and troubleshooting
  - [ ] Sounds and music
  - [ ] A menu or something
 
 ## Known Bugs
- - None Right now!
+ - None right now!
 
 ## Credits
 The stone wall background and granite texture is from [texturify.com](https://texturify.com) ([stone wall](https://texturify.com/stock-photo/stone-wall022-9863.html), [granite](https://texturify.com/stock-photo/marbel013-9142.html)).
