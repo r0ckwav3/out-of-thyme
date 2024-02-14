@@ -2,6 +2,7 @@ extends Node2D
 
 signal spices_intialized(spices)
 signal recipe_text_intialized(title, body)
+signal step_completed(steps_done)
 signal recipe_completed
 signal recipe_failed
 
@@ -107,6 +108,7 @@ func _on_timer_finished():
 func correct_step():
 	print("correct!")
 	completed_steps += 1
+	step_completed.emit(completed_steps)
 	if completed_steps == num_steps:
 		print("recipe complete!")
 		recipe_completed.emit()

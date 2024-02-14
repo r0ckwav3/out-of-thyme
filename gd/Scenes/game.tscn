@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://v7o8nvto7jyn"]
+[gd_scene load_steps=16 format=3 uid="uid://v7o8nvto7jyn"]
 
 [ext_resource type="PackedScene" uid="uid://bp3ktpd4rye8f" path="res://Scenes/subscene_manager.tscn" id="1_bnhar"]
 [ext_resource type="PackedScene" uid="uid://63nui4oaaiyw" path="res://Scenes/pot_scene.tscn" id="2_luqqc"]
@@ -11,7 +11,9 @@
 [ext_resource type="Texture2D" uid="uid://bioi8ba4jv1tj" path="res://Assets/BGs/drawer.png" id="5_lbj4n"]
 [ext_resource type="Script" path="res://Scripts/MouseManager.gd" id="6_2huoc"]
 [ext_resource type="Script" path="res://Scripts/RecipeContentLabel.gd" id="6_bo8et"]
+[ext_resource type="Script" path="res://Scenes/StrikethroughGroup.gd" id="7_d0qpx"]
 [ext_resource type="Texture2D" uid="uid://c8xribwwb7tnw" path="res://Assets/Objects/Jars/Jar_Unimplemented.png" id="7_takwi"]
+[ext_resource type="PackedScene" uid="uid://u5ld1bkoxbrg" path="res://Scenes/strikethrough.tscn" id="8_51kx3"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_myo40"]
 
@@ -58,6 +60,12 @@ TEST RECIPE"
 autowrap_mode = 2
 script = ExtResource("6_bo8et")
 
+[node name="StrikethroughGroup" type="Node2D" parent="SubsceneManager2/RecipeScene"]
+position = Vector2(623, 331)
+script = ExtResource("7_d0qpx")
+strikethrough = ExtResource("8_51kx3")
+spacing = 42
+
 [node name="PotScene" parent="SubsceneManager2" instance=ExtResource("2_luqqc")]
 visible = false
 
@@ -89,6 +97,7 @@ one_shot = true
 autostart = true
 
 [node name="TimerBar" type="Polygon2D" parent="RecipeManager"]
+visible = false
 texture = SubResource("PlaceholderTexture2D_myo40")
 polygon = PackedVector2Array(0, 0, 1000, 2.08165e-12, 1000, 100, 2.08165e-12, 100)
 
@@ -99,4 +108,5 @@ polygon = PackedVector2Array(0, 0, 1000, 2.08165e-12, 1000, 100, 2.08165e-12, 10
 [connection signal="recipe_text_intialized" from="RecipeManager" to="SubsceneManager2/RecipeScene/RecipeContentLabel" method="_on_recipe_text_intialized"]
 [connection signal="spices_intialized" from="RecipeManager" to="SubsceneManager2/DrawerScene/JarController" method="_on_spice_init"]
 [connection signal="spices_intialized" from="RecipeManager" to="MouseManager" method="_on_spice_init"]
+[connection signal="step_completed" from="RecipeManager" to="SubsceneManager2/RecipeScene/StrikethroughGroup" method="set_num_strikethroughs"]
 [connection signal="timeout" from="RecipeManager/Timer" to="RecipeManager" method="_on_timer_finished"]
