@@ -8,7 +8,7 @@ Currently, the only way to run this game is to install Godot v4.2.1 and launch i
  - [X] Ingredient pick-up and put-down
  - [X] Recipe generation
  - [X] Display recipe
- - [ ] Display recipe progress
+ - [X] Display recipe progress
  - [ ] Timer
  - [X] Recipe validation
  - [X] Ingredient randomization
