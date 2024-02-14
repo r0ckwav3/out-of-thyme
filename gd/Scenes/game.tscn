@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://v7o8nvto7jyn"]
+[gd_scene load_steps=14 format=3 uid="uid://v7o8nvto7jyn"]
 
 [ext_resource type="PackedScene" uid="uid://bp3ktpd4rye8f" path="res://Scenes/subscene_manager.tscn" id="1_bnhar"]
 [ext_resource type="PackedScene" uid="uid://63nui4oaaiyw" path="res://Scenes/pot_scene.tscn" id="2_luqqc"]
@@ -7,8 +7,10 @@
 [ext_resource type="Theme" uid="uid://b8sgd0wgvuwwf" path="res://Other/Themes/Handwritten.tres" id="4_3ne88"]
 [ext_resource type="PackedScene" uid="uid://dju6rnicahicb" path="res://Scenes/jar_controller.tscn" id="4_77yxr"]
 [ext_resource type="Script" path="res://Scripts/RecipeManager.gd" id="5_c6pvm"]
+[ext_resource type="Script" path="res://Scripts/RecipeTitleLabel.gd" id="5_g5pgj"]
 [ext_resource type="Texture2D" uid="uid://bioi8ba4jv1tj" path="res://Assets/BGs/drawer.png" id="5_lbj4n"]
 [ext_resource type="Script" path="res://Scripts/MouseManager.gd" id="6_2huoc"]
+[ext_resource type="Script" path="res://Scripts/RecipeContentLabel.gd" id="6_bo8et"]
 [ext_resource type="Texture2D" uid="uid://c8xribwwb7tnw" path="res://Assets/Objects/Jars/Jar_Unimplemented.png" id="7_takwi"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_myo40"]
@@ -38,20 +40,23 @@ theme = ExtResource("4_3ne88")
 theme_type_variation = &"HeaderLarge"
 text = "TEST TITLE TEST TITLE"
 horizontal_alignment = 1
+script = ExtResource("5_g5pgj")
 
 [node name="RecipeContentLabel" type="Label" parent="SubsceneManager2/RecipeScene"]
-offset_left = 333.0
-offset_top = 319.0
+offset_left = 392.0
+offset_top = 314.0
 offset_right = 954.0
-offset_bottom = 700.0
+offset_bottom = 857.0
 theme = ExtResource("4_3ne88")
+theme_override_font_sizes/font_size = 30
 text = "TEST RECIPE
 TEST RECIPE
 TEST RECIPE
-TEST RECIPE
+TEST RECIPE TEST RECIPE TEST RECIPE TEST RECIPE TEST RECIPE TEST RECIPE TEST RECIPE
 TEST RECIPE
 TEST RECIPE"
-horizontal_alignment = 1
+autowrap_mode = 2
+script = ExtResource("6_bo8et")
 
 [node name="PotScene" parent="SubsceneManager2" instance=ExtResource("2_luqqc")]
 visible = false
@@ -90,6 +95,8 @@ polygon = PackedVector2Array(0, 0, 1000, 2.08165e-12, 1000, 100, 2.08165e-12, 10
 [connection signal="pot_selected" from="SubsceneManager2/PotScene" to="MouseManager" method="_on_pot_selected"]
 [connection signal="item_selected" from="SubsceneManager2/DrawerScene/JarController" to="MouseManager" method="_on_spice_selected"]
 [connection signal="spice_added" from="MouseManager" to="RecipeManager" method="_on_spice_added"]
+[connection signal="recipe_text_intialized" from="RecipeManager" to="SubsceneManager2/RecipeScene/RecipeTitleLabel" method="_on_recipe_text_intialized"]
+[connection signal="recipe_text_intialized" from="RecipeManager" to="SubsceneManager2/RecipeScene/RecipeContentLabel" method="_on_recipe_text_intialized"]
 [connection signal="spices_intialized" from="RecipeManager" to="SubsceneManager2/DrawerScene/JarController" method="_on_spice_init"]
 [connection signal="spices_intialized" from="RecipeManager" to="MouseManager" method="_on_spice_init"]
 [connection signal="timeout" from="RecipeManager/Timer" to="RecipeManager" method="_on_timer_finished"]

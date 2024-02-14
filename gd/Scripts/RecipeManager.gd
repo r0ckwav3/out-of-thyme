@@ -1,7 +1,7 @@
 extends Node2D
 
 signal spices_intialized(spices)
-signal health_changed(old, new)
+signal recipe_text_intialized(title, body)
 signal recipe_completed
 signal recipe_failed
 
@@ -27,7 +27,7 @@ enum RecipeStepType{
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	# randomize()
-	seed(19420381)
+	seed(145346341)
 	
 	timer_obj = get_child(0)
 	timer_obj.wait_time = starting_time
@@ -36,8 +36,8 @@ func _ready():
 	generate_recipe()
 	title = generate_title()
 	
-	for i in range(len(recipe)):
-		print(recipe_line_text(i))
+	recipe_text_intialized.emit(title, generate_recipe_text())
+	
 
 func parse_spices():
 	var spice_json = load("res://Data/spices.json")
@@ -82,7 +82,13 @@ func recipe_line_text(line_num):
 	var line = recipe[line_num]
 	if line["type"] == RecipeStepType.ADD_SPICE:
 		# TODO: randomize measurements
-		return "Add a pinch of %s." % get_spice_by_id(line["spice_id"])["name"]
+		return "%d. Add a pinch of %s." % [line_num+1, get_spice_by_id(line["spice_id"])["name"]]
+
+func generate_recipe_text():
+	var ans = ""
+	for i in range(num_steps):
+		ans += recipe_line_text(i) + "\n"
+	return ans
 
 func get_spice_by_id(spice_id):
 	for s in chosen_spices:
