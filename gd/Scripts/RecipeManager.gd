@@ -18,7 +18,8 @@ var completed_steps = 0
 
 var title
 
-var timer_obj
+var timer_child
+var label_child
 
 enum RecipeStepType{
 	ADD_SPICE,
@@ -30,8 +31,9 @@ func _ready():
 	# randomize()
 	seed(145346341)
 	
-	timer_obj = get_child(0)
-	timer_obj.wait_time = starting_time
+	timer_child = get_child(0)
+	label_child = get_child(1)
+	timer_child.wait_time = starting_time
 	
 	parse_spices()
 	generate_recipe()
@@ -110,8 +112,16 @@ func correct_step():
 	completed_steps += 1
 	step_completed.emit(completed_steps)
 	if completed_steps == num_steps:
-		print("recipe complete!")
 		recipe_completed.emit()
 	
 func incorrect_step():
 	print("incorrect :(")
+
+func _process(_delta):
+	display_timer()
+
+func display_timer():
+	var secondsleft = int(floor(timer_child.time_left))
+	var minutes = secondsleft / 60
+	var seconds = secondsleft % 60
+	label_child.text = "%02d:%02d" % [minutes,seconds]

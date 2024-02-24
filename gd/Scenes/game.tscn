@@ -1,5 +1,6 @@
-[gd_scene load_steps=16 format=3 uid="uid://v7o8nvto7jyn"]
+[gd_scene load_steps=17 format=3 uid="uid://v7o8nvto7jyn"]
 
+[ext_resource type="Script" path="res://Scripts/GameController.gd" id="1_0vywl"]
 [ext_resource type="PackedScene" uid="uid://bp3ktpd4rye8f" path="res://Scenes/subscene_manager.tscn" id="1_bnhar"]
 [ext_resource type="PackedScene" uid="uid://63nui4oaaiyw" path="res://Scenes/pot_scene.tscn" id="2_luqqc"]
 [ext_resource type="Texture2D" uid="uid://cbj8rb4mc4b2" path="res://Assets/BGs/blurry_granite.png" id="2_t0nk1"]
@@ -11,13 +12,14 @@
 [ext_resource type="Texture2D" uid="uid://bioi8ba4jv1tj" path="res://Assets/BGs/drawer.png" id="5_lbj4n"]
 [ext_resource type="Script" path="res://Scripts/MouseManager.gd" id="6_2huoc"]
 [ext_resource type="Script" path="res://Scripts/RecipeContentLabel.gd" id="6_bo8et"]
-[ext_resource type="Script" path="res://Scenes/StrikethroughGroup.gd" id="7_d0qpx"]
 [ext_resource type="Texture2D" uid="uid://c8xribwwb7tnw" path="res://Assets/Objects/Jars/Jar_Unimplemented.png" id="7_takwi"]
 [ext_resource type="PackedScene" uid="uid://u5ld1bkoxbrg" path="res://Scenes/strikethrough.tscn" id="8_51kx3"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_myo40"]
+[ext_resource type="Script" path="res://Scripts/StrikethroughGroup.gd" id="9_btarx"]
+[ext_resource type="Texture2D" uid="uid://d3bsk4fnpmfj2" path="res://Assets/UI/timer_icon.png" id="16_ij4oo"]
 
 [node name="Game" type="Node2D"]
+script = ExtResource("1_0vywl")
+mainmenu_scene_path = "res://Scenes/TempMenu.tscn"
 
 [node name="SubsceneManager2" parent="." instance=ExtResource("1_bnhar")]
 
@@ -62,7 +64,7 @@ script = ExtResource("6_bo8et")
 
 [node name="StrikethroughGroup" type="Node2D" parent="SubsceneManager2/RecipeScene"]
 position = Vector2(623, 331)
-script = ExtResource("7_d0qpx")
+script = ExtResource("9_btarx")
 strikethrough = ExtResource("8_51kx3")
 spacing = 42
 
@@ -96,14 +98,29 @@ wait_time = 60.0
 one_shot = true
 autostart = true
 
-[node name="TimerBar" type="Polygon2D" parent="RecipeManager"]
-visible = false
-texture = SubResource("PlaceholderTexture2D_myo40")
-polygon = PackedVector2Array(0, 0, 1000, 2.08165e-12, 1000, 100, 2.08165e-12, 100)
+[node name="Label" type="Label" parent="RecipeManager"]
+offset_left = 115.0
+offset_top = 17.0
+offset_right = 407.0
+offset_bottom = 108.0
+theme = ExtResource("4_3ne88")
+theme_type_variation = &"HeaderLarge"
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 72
+text = "23:59:59"
+
+[node name="TimerIcon" type="Sprite2D" parent="."]
+position = Vector2(64, 59)
+scale = Vector2(0.840002, 0.840002)
+texture = ExtResource("16_ij4oo")
 
 [connection signal="pot_selected" from="SubsceneManager2/PotScene" to="MouseManager" method="_on_pot_selected"]
 [connection signal="item_selected" from="SubsceneManager2/DrawerScene/JarController" to="MouseManager" method="_on_spice_selected"]
 [connection signal="spice_added" from="MouseManager" to="RecipeManager" method="_on_spice_added"]
+[connection signal="recipe_completed" from="RecipeManager" to="." method="on_recipe_finished" binds= [true]]
+[connection signal="recipe_failed" from="RecipeManager" to="." method="on_recipe_finished" binds= [false]]
 [connection signal="recipe_text_intialized" from="RecipeManager" to="SubsceneManager2/RecipeScene/RecipeTitleLabel" method="_on_recipe_text_intialized"]
 [connection signal="recipe_text_intialized" from="RecipeManager" to="SubsceneManager2/RecipeScene/RecipeContentLabel" method="_on_recipe_text_intialized"]
 [connection signal="spices_intialized" from="RecipeManager" to="SubsceneManager2/DrawerScene/JarController" method="_on_spice_init"]

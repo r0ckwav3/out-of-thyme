@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://dnx1nqx67nmtl"]
+
+[ext_resource type="Theme" uid="uid://b8sgd0wgvuwwf" path="res://Other/Themes/Handwritten.tres" id="1_fnktw"]
+[ext_resource type="Script" path="res://Scripts/StartGameButton.gd" id="2_m140o"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="StartGameButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 594.0
+offset_top = 436.0
+offset_right = -606.0
+offset_bottom = -444.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(362, 93)
+theme = ExtResource("1_fnktw")
+theme_override_font_sizes/font_size = 60
+text = "START GAME"
+script = ExtResource("2_m140o")
+target_scene_path = "res://Scenes/game.tscn"
+
+[connection signal="pressed" from="StartGameButton" to="StartGameButton" method="_on_pressed"]
