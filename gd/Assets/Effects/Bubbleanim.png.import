@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cmi0y8qanjwgv"
-path="res://.godot/imported/pot.png-56cac6e5e43100685a5aff2ab7136465.ctex"
+uid="uid://dhhrqgjw73d8y"
+path="res://.godot/imported/Bubbleanim.png-fc346c047d1062ccdc0b3696a76a509b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Objects/pot.png"
-dest_files=["res://.godot/imported/pot.png-56cac6e5e43100685a5aff2ab7136465.ctex"]
+source_file="res://Assets/Effects/Bubbleanim.png"
+dest_files=["res://.godot/imported/Bubbleanim.png-fc346c047d1062ccdc0b3696a76a509b.ctex"]
 
 [params]
 
