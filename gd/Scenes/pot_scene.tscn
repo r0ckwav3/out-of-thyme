@@ -39,11 +39,12 @@ scale = Vector2(0.6, 0.6)
 texture = ExtResource("3_rtxj7")
 script = ExtResource("5_ltpky")
 bubble_obj = ExtResource("6_rctex")
-bubble_spawn_offset = 40.0
-bubble_spawn_width = 600.0
-bubble_spawn_height = 300.0
-bubble_delay_min = 0.5
+bubble_spawn_offset = 50.0
+bubble_spawn_width = 750.0
+bubble_spawn_height = 260.0
+bubble_delay_min = 0.2
 bubble_delay_max = 1.0
+overboil_multiplier = 0.2
 
 [node name="Area2D" type="Area2D" parent="."]
 
