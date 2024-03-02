@@ -21,7 +21,6 @@ var bubble_cooldown = 0;
 
 func _ready():
 	print("test")
-	set_state(3)
 
 func _process(delta):
 	bubble_cooldown -= delta;

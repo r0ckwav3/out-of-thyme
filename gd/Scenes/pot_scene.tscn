@@ -15,8 +15,9 @@ height = 884.0
 radius = 163.0
 height = 652.0
 
-[node name="PotScene" type="Node2D"]
+[node name="PotScene" type="Node2D" node_paths=PackedStringArray("opening")]
 script = ExtResource("1_2i87j")
+opening = NodePath("Pot_opening")
 
 [node name="BlurryWall" type="Sprite2D" parent="."]
 position = Vector2(960, 480)

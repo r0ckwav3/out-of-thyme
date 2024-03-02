@@ -75,8 +75,6 @@ script = ExtResource("1_10hue")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_gl0pn")
-frame = 1
-frame_progress = 0.684661
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
