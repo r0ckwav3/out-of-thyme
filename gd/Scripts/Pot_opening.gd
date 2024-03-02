@@ -6,7 +6,7 @@ extends Sprite2D
 # 0: regular
 # 1: overboiling
 # 2: green
-# 3: black
+# 3: red
 @export var bubble_obj : PackedScene
 @export_group("Bubble Spawn Parameters") 
 @export var bubble_spawn_offset : float
@@ -18,6 +18,10 @@ extends Sprite2D
 @export var overboil_multiplier = 0.1
 
 var bubble_cooldown = 0;
+
+func _ready():
+	print("test")
+	set_state(3)
 
 func _process(delta):
 	bubble_cooldown -= delta;
@@ -55,3 +59,19 @@ func _create_bubble():
 func _calc_bubble_pos(dim1, dim2):
 	var base = Vector2(0, bubble_spawn_offset-(bubble_spawn_height/2))
 	return base + dim1 * Vector2(-bubble_spawn_width/2, bubble_spawn_height/2) + dim2 * Vector2(bubble_spawn_width/2, bubble_spawn_height/2)
+
+# this should really be done in an animation manager
+func set_state(new_state):
+	# reset stuff from last state
+	if state == 2:
+		self_modulate.r = 1.0
+	if state == 3:
+		self_modulate.g = 1.0
+	
+	# setup new state
+	if new_state == 2:
+		self_modulate.r = 0.0
+	if new_state == 3:
+		self_modulate.g = 0.0
+	
+	state = new_state
