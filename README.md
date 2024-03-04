@@ -9,7 +9,7 @@ Currently, the only way to run this game is to install Godot v4.2.1 and launch i
  - [X] Recipe generation
  - [X] Display recipe
  - [X] Display recipe progress
- - [ ] Timer
+ - [X] Timer
  - [X] Recipe validation
  - [X] Ingredient randomization
  - [ ] Drawers
