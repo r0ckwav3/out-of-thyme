@@ -17,9 +17,12 @@ var recipe = []
 var completed_steps = 0
 
 var title
+var other_word_lists
 
 var timer_child
 var label_child
+var my_seed # use within single functions, not the same as the global seed
+
 
 enum RecipeStepType{
 	ADD_SPICE,
@@ -30,17 +33,23 @@ enum RecipeStepType{
 func _ready():
 	# randomize()
 	seed(145346341)
+	my_seed = randi()
 	
 	timer_child = get_child(0)
 	label_child = get_child(1)
 	timer_child.wait_time = starting_time
 	
+	load_word_lists()
 	parse_spices()
+	parse_disruptions()
+	
 	generate_recipe()
 	title = generate_title()
 	
 	recipe_text_intialized.emit(title, generate_recipe_text())
-	
+
+func load_word_lists():
+	other_word_lists = load("res://Data/other_word_lists.json").data
 
 func parse_spices():
 	var spice_json = load("res://Data/spices.json")
@@ -55,6 +64,9 @@ func parse_spices():
 		chosen_spices.append(parse2)
 	
 	spices_intialized.emit(chosen_spices)
+
+func parse_disruptions():
+	pass
 
 func generate_recipe():
 	for i in range(num_steps):
@@ -81,16 +93,17 @@ func generate_title():
 			i += 1
 	return s
 
-func recipe_line_text(line_num):
-	var line = recipe[line_num]
-	if line["type"] == RecipeStepType.ADD_SPICE:
-		# TODO: randomize measurements
-		return "%d. Add a pinch of %s." % [line_num+1, get_spice_by_id(line["spice_id"])["name"]]
-
 func generate_recipe_text():
 	var ans = ""
+	var rng = RandomNumberGenerator.new()
+	rng.seed = my_seed
+	var measurements = other_word_lists["measurements"]
 	for i in range(num_steps):
-		ans += recipe_line_text(i) + "\n"
+		var line = recipe[i]
+		if line["type"] == RecipeStepType.ADD_SPICE:
+			var measureword = measurements[rng.randi() % len(measurements)]
+			ans += "%d. Add %s %s." % [i+1, measureword, get_spice_by_id(line["spice_id"])["name"]]
+		ans += "\n"
 	return ans
 
 func get_spice_by_id(spice_id):
