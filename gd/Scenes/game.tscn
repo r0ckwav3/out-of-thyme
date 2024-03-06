@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://v7o8nvto7jyn"]
+[gd_scene load_steps=19 format=3 uid="uid://v7o8nvto7jyn"]
 
 [ext_resource type="Script" path="res://Scripts/GameController.gd" id="1_0vywl"]
 [ext_resource type="PackedScene" uid="uid://bp3ktpd4rye8f" path="res://Scenes/subscene_manager.tscn" id="1_bnhar"]
@@ -17,6 +17,7 @@
 [ext_resource type="Script" path="res://Scripts/RecipeDisruptionLabel.gd" id="8_xnq7u"]
 [ext_resource type="Script" path="res://Scripts/StrikethroughGroup.gd" id="9_btarx"]
 [ext_resource type="Texture2D" uid="uid://d3bsk4fnpmfj2" path="res://Assets/UI/timer_icon.png" id="16_ij4oo"]
+[ext_resource type="PackedScene" uid="uid://l6nox5lde37p" path="res://Scenes/incorrect_step_overlay.tscn" id="18_ohhjx"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_0vywl")
@@ -25,6 +26,7 @@ mainmenu_scene_path = "res://Scenes/TempMenu.tscn"
 [node name="SubsceneManager2" parent="." instance=ExtResource("1_bnhar")]
 
 [node name="RecipeScene" type="Node2D" parent="SubsceneManager2"]
+visible = false
 
 [node name="BlurryGranite" type="Sprite2D" parent="SubsceneManager2/RecipeScene"]
 position = Vector2(960, 480)
@@ -143,9 +145,12 @@ position = Vector2(64, 59)
 scale = Vector2(0.840002, 0.840002)
 texture = ExtResource("16_ij4oo")
 
+[node name="IncorrectStepOverlay" parent="." instance=ExtResource("18_ohhjx")]
+
 [connection signal="pot_selected" from="SubsceneManager2/PotScene" to="MouseManager" method="_on_pot_selected"]
 [connection signal="item_selected" from="SubsceneManager2/DrawerScene/JarController" to="MouseManager" method="_on_spice_selected"]
 [connection signal="spice_added" from="MouseManager" to="RecipeManager" method="_on_spice_added"]
+[connection signal="performed_incorrect_step" from="RecipeManager" to="IncorrectStepOverlay" method="flash"]
 [connection signal="recipe_completed" from="RecipeManager" to="." method="on_recipe_finished" binds= [true]]
 [connection signal="recipe_failed" from="RecipeManager" to="." method="on_recipe_finished" binds= [false]]
 [connection signal="recipe_text_intialized" from="RecipeManager" to="SubsceneManager2/RecipeScene/RecipeTitleLabel" method="_on_recipe_text_intialized"]

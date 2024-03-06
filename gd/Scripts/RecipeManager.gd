@@ -4,6 +4,7 @@ signal spices_intialized(spices)
 signal recipe_text_intialized(title, body, disruptions)
 signal step_completed(steps_done)
 signal update_disruption(disruption_id)
+signal performed_incorrect_step
 signal recipe_completed
 signal recipe_failed
 
@@ -12,6 +13,7 @@ signal recipe_failed
 @export var steps_per_disruption = 2
 @export var num_disruptions = 1
 @export var starting_time = 60
+@export var incorrect_time_penalty = 5
 var chosen_spices = []
 
 # each element is a dict with key "type"
@@ -206,7 +208,9 @@ func correct_step():
 	
 func incorrect_step():
 	print("incorrect :(")
-	# TODO: decrease timer on failed ingredient
+	performed_incorrect_step.emit()
+	timer_child.start(timer_child.time_left - incorrect_time_penalty)
+	
 
 func _process(_delta):
 	display_timer()
