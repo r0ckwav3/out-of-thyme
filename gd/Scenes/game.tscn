@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://v7o8nvto7jyn"]
+[gd_scene load_steps=18 format=3 uid="uid://v7o8nvto7jyn"]
 
 [ext_resource type="Script" path="res://Scripts/GameController.gd" id="1_0vywl"]
 [ext_resource type="PackedScene" uid="uid://bp3ktpd4rye8f" path="res://Scenes/subscene_manager.tscn" id="1_bnhar"]
@@ -14,6 +14,7 @@
 [ext_resource type="Script" path="res://Scripts/RecipeContentLabel.gd" id="6_bo8et"]
 [ext_resource type="Texture2D" uid="uid://c8xribwwb7tnw" path="res://Assets/Objects/Jars/Jar_Unimplemented.png" id="7_takwi"]
 [ext_resource type="PackedScene" uid="uid://u5ld1bkoxbrg" path="res://Scenes/strikethrough.tscn" id="8_51kx3"]
+[ext_resource type="Script" path="res://Scripts/RecipeDisruptionLabel.gd" id="8_xnq7u"]
 [ext_resource type="Script" path="res://Scripts/StrikethroughGroup.gd" id="9_btarx"]
 [ext_resource type="Texture2D" uid="uid://d3bsk4fnpmfj2" path="res://Assets/UI/timer_icon.png" id="16_ij4oo"]
 
@@ -46,11 +47,21 @@ text = "TEST TITLE TEST TITLE"
 horizontal_alignment = 1
 script = ExtResource("5_g5pgj")
 
+[node name="RecipeTroubleshootingLabel" type="Label" parent="SubsceneManager2/RecipeScene"]
+offset_left = 966.0
+offset_top = 184.0
+offset_right = 1587.0
+offset_bottom = 245.0
+theme = ExtResource("4_3ne88")
+theme_type_variation = &"HeaderLarge"
+text = "Troubleshooting"
+horizontal_alignment = 1
+
 [node name="RecipeContentLabel" type="Label" parent="SubsceneManager2/RecipeScene"]
 offset_left = 392.0
-offset_top = 314.0
+offset_top = 274.0
 offset_right = 954.0
-offset_bottom = 857.0
+offset_bottom = 817.0
 theme = ExtResource("4_3ne88")
 theme_override_font_sizes/font_size = 30
 text = "TEST RECIPE
@@ -62,8 +73,24 @@ TEST RECIPE"
 autowrap_mode = 2
 script = ExtResource("6_bo8et")
 
+[node name="RecipeDisruptionLabe" type="Label" parent="SubsceneManager2/RecipeScene"]
+offset_left = 1024.0
+offset_top = 274.0
+offset_right = 1586.0
+offset_bottom = 817.0
+theme = ExtResource("4_3ne88")
+theme_override_font_sizes/font_size = 30
+text = "TEST RECIPE
+TEST RECIPE
+TEST RECIPE
+TEST RECIPE TEST RECIPE TEST RECIPE TEST RECIPE TEST RECIPE TEST RECIPE TEST RECIPE
+TEST RECIPE
+TEST RECIPE"
+autowrap_mode = 2
+script = ExtResource("8_xnq7u")
+
 [node name="StrikethroughGroup" type="Node2D" parent="SubsceneManager2/RecipeScene"]
-position = Vector2(623, 331)
+position = Vector2(623, 290)
 script = ExtResource("9_btarx")
 strikethrough = ExtResource("8_51kx3")
 spacing = 42
@@ -123,7 +150,9 @@ texture = ExtResource("16_ij4oo")
 [connection signal="recipe_failed" from="RecipeManager" to="." method="on_recipe_finished" binds= [false]]
 [connection signal="recipe_text_intialized" from="RecipeManager" to="SubsceneManager2/RecipeScene/RecipeTitleLabel" method="_on_recipe_text_intialized"]
 [connection signal="recipe_text_intialized" from="RecipeManager" to="SubsceneManager2/RecipeScene/RecipeContentLabel" method="_on_recipe_text_intialized"]
+[connection signal="recipe_text_intialized" from="RecipeManager" to="SubsceneManager2/RecipeScene/RecipeDisruptionLabe" method="_on_recipe_text_intialized"]
 [connection signal="spices_intialized" from="RecipeManager" to="SubsceneManager2/DrawerScene/JarController" method="_on_spice_init"]
 [connection signal="spices_intialized" from="RecipeManager" to="MouseManager" method="_on_spice_init"]
 [connection signal="step_completed" from="RecipeManager" to="SubsceneManager2/RecipeScene/StrikethroughGroup" method="set_num_strikethroughs"]
+[connection signal="update_disruption" from="RecipeManager" to="SubsceneManager2/PotScene" method="set_state"]
 [connection signal="timeout" from="RecipeManager/Timer" to="RecipeManager" method="_on_timer_finished"]

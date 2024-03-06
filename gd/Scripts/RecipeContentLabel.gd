@@ -11,5 +11,5 @@ func _process(delta):
 	pass
 
 
-func _on_recipe_text_intialized(title, body):
+func _on_recipe_text_intialized(title, body, disruptions):
 	text = body

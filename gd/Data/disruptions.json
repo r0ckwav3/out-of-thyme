@@ -1,0 +1,17 @@
+[
+  {
+	"id": 1,
+	"name": "Overboiling",
+	"desc": "If the pot bubbles too much"
+  },
+  {
+	"id": 2,
+	"name": "Fast-onset Mold",
+	"desc": "If the pot suddenly turns green"
+  },
+  {
+	"id": 3,
+	"name": "Encrimsonment",
+	"desc": "If the mixture becomes red"
+  }
+]
