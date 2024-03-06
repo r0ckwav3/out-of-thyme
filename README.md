@@ -14,9 +14,9 @@ Currently, the only way to run this game is to install Godot v4.2.1 and launch i
  - [X] Ingredient randomization
  - [ ] Drawers
  - [ ] Difficulty options or increasing difficulty or something
- - [ ] Recipe mishaps and troubleshooting
+ - [X] Recipe mishaps and troubleshooting
  - [ ] Sounds and music
- - [ ] A menu or something
+ - [ ] A real menu
 
 ## Known Bugs
  - None right now!
