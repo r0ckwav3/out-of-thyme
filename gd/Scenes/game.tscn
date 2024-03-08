@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://v7o8nvto7jyn"]
+[gd_scene load_steps=22 format=3 uid="uid://v7o8nvto7jyn"]
 
 [ext_resource type="Script" path="res://Scripts/GameController.gd" id="1_0vywl"]
 [ext_resource type="PackedScene" uid="uid://bp3ktpd4rye8f" path="res://Scenes/subscene_manager.tscn" id="1_bnhar"]
@@ -16,7 +16,10 @@
 [ext_resource type="PackedScene" uid="uid://u5ld1bkoxbrg" path="res://Scenes/strikethrough.tscn" id="8_51kx3"]
 [ext_resource type="Script" path="res://Scripts/RecipeDisruptionLabel.gd" id="8_xnq7u"]
 [ext_resource type="Script" path="res://Scripts/StrikethroughGroup.gd" id="9_btarx"]
+[ext_resource type="Texture2D" uid="uid://cgfryprog4jsy" path="res://Assets/UI/Nav_Icon_Book.png" id="14_np0fk"]
+[ext_resource type="Texture2D" uid="uid://dvm3l8klm61kb" path="res://Assets/UI/Nav_Icon_Pot.png" id="15_5hcl8"]
 [ext_resource type="Texture2D" uid="uid://d3bsk4fnpmfj2" path="res://Assets/UI/timer_icon.png" id="16_ij4oo"]
+[ext_resource type="Texture2D" uid="uid://clut1myo481ic" path="res://Assets/UI/Nav_Icon_Jar.png" id="16_sor16"]
 [ext_resource type="PackedScene" uid="uid://l6nox5lde37p" path="res://Scenes/incorrect_step_overlay.tscn" id="18_ohhjx"]
 
 [node name="Game" type="Node2D"]
@@ -26,7 +29,6 @@ mainmenu_scene_path = "res://Scenes/TempMenu.tscn"
 [node name="SubsceneManager2" parent="." instance=ExtResource("1_bnhar")]
 
 [node name="RecipeScene" type="Node2D" parent="SubsceneManager2"]
-visible = false
 
 [node name="BlurryGranite" type="Sprite2D" parent="SubsceneManager2/RecipeScene"]
 position = Vector2(960, 480)
@@ -111,6 +113,94 @@ texture = ExtResource("5_lbj4n")
 [node name="JarController" parent="SubsceneManager2/DrawerScene" instance=ExtResource("4_77yxr")]
 position = Vector2(414, 700)
 
+[node name="Subscene Buttons" type="Node2D" parent="."]
+
+[node name="NavBook" type="Control" parent="Subscene Buttons"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 633.0
+offset_top = 900.0
+offset_right = 673.0
+offset_bottom = 940.0
+
+[node name="NavIconBook" type="TextureButton" parent="Subscene Buttons/NavBook"]
+offset_right = 500.0
+offset_bottom = 500.0
+scale = Vector2(0.3, 0.3)
+texture_normal = ExtResource("14_np0fk")
+
+[node name="Label" type="Label" parent="Subscene Buttons/NavBook"]
+layout_mode = 0
+offset_left = 19.0
+offset_top = -2.0
+offset_right = 53.0
+offset_bottom = 59.0
+theme = ExtResource("4_3ne88")
+theme_type_variation = &"HeaderLarge"
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 2
+text = "1"
+
+[node name="NavPot" type="Control" parent="Subscene Buttons"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 885.0
+offset_top = 900.0
+offset_right = 925.0
+offset_bottom = 940.0
+
+[node name="NavIconPot" type="TextureButton" parent="Subscene Buttons/NavPot"]
+offset_right = 500.0
+offset_bottom = 500.0
+scale = Vector2(0.3, 0.3)
+texture_normal = ExtResource("15_5hcl8")
+
+[node name="Label" type="Label" parent="Subscene Buttons/NavPot"]
+layout_mode = 0
+offset_left = 19.0
+offset_top = -2.0
+offset_right = 53.0
+offset_bottom = 59.0
+theme = ExtResource("4_3ne88")
+theme_type_variation = &"HeaderLarge"
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 2
+text = "2
+"
+
+[node name="NavJar" type="Control" parent="Subscene Buttons"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1126.0
+offset_top = 900.0
+offset_right = 1166.0
+offset_bottom = 940.0
+
+[node name="NavIconJar" type="TextureButton" parent="Subscene Buttons/NavJar"]
+offset_right = 500.0
+offset_bottom = 500.0
+scale = Vector2(0.3, 0.3)
+texture_normal = ExtResource("16_sor16")
+
+[node name="Label" type="Label" parent="Subscene Buttons/NavJar"]
+layout_mode = 0
+offset_left = 19.0
+offset_top = -2.0
+offset_right = 53.0
+offset_bottom = 59.0
+theme = ExtResource("4_3ne88")
+theme_type_variation = &"HeaderLarge"
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 2
+text = "3
+"
+
 [node name="MouseManager" type="Node2D" parent="."]
 script = ExtResource("6_2huoc")
 
@@ -146,9 +236,13 @@ scale = Vector2(0.840002, 0.840002)
 texture = ExtResource("16_ij4oo")
 
 [node name="IncorrectStepOverlay" parent="." instance=ExtResource("18_ohhjx")]
+visible = false
 
 [connection signal="pot_selected" from="SubsceneManager2/PotScene" to="MouseManager" method="_on_pot_selected"]
 [connection signal="item_selected" from="SubsceneManager2/DrawerScene/JarController" to="MouseManager" method="_on_spice_selected"]
+[connection signal="pressed" from="Subscene Buttons/NavBook/NavIconBook" to="SubsceneManager2" method="change_target" binds= [0]]
+[connection signal="pressed" from="Subscene Buttons/NavPot/NavIconPot" to="SubsceneManager2" method="change_target" binds= [1]]
+[connection signal="pressed" from="Subscene Buttons/NavJar/NavIconJar" to="SubsceneManager2" method="change_target" binds= [2]]
 [connection signal="spice_added" from="MouseManager" to="RecipeManager" method="_on_spice_added"]
 [connection signal="performed_incorrect_step" from="RecipeManager" to="IncorrectStepOverlay" method="flash"]
 [connection signal="recipe_completed" from="RecipeManager" to="." method="on_recipe_finished" binds= [true]]
