@@ -124,6 +124,7 @@ offset_right = 673.0
 offset_bottom = 940.0
 
 [node name="NavIconBook" type="TextureButton" parent="Subscene Buttons/NavBook"]
+layout_mode = 0
 offset_right = 500.0
 offset_bottom = 500.0
 scale = Vector2(0.3, 0.3)
@@ -152,6 +153,7 @@ offset_right = 925.0
 offset_bottom = 940.0
 
 [node name="NavIconPot" type="TextureButton" parent="Subscene Buttons/NavPot"]
+layout_mode = 0
 offset_right = 500.0
 offset_bottom = 500.0
 scale = Vector2(0.3, 0.3)
@@ -181,6 +183,7 @@ offset_right = 1166.0
 offset_bottom = 940.0
 
 [node name="NavIconJar" type="TextureButton" parent="Subscene Buttons/NavJar"]
+layout_mode = 0
 offset_right = 500.0
 offset_bottom = 500.0
 scale = Vector2(0.3, 0.3)
