@@ -214,6 +214,7 @@ texture = ExtResource("7_takwi")
 
 [node name="RecipeManager" type="Node2D" parent="."]
 script = ExtResource("5_c6pvm")
+num_steps = 6
 
 [node name="Timer" type="Timer" parent="RecipeManager"]
 wait_time = 60.0
